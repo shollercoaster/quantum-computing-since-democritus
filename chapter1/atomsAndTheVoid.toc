@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Introduction: From Atoms}{3}{0}{1}
+\beamer@sectionintoc {2}{Introduction: Touchstone}{3}{0}{2}
+\beamer@sectionintoc {3}{Quantum Mechanics}{3}{0}{3}
+\beamer@sectionintoc {4}{Dilemma}{3}{0}{4}
+\beamer@sectionintoc {5}{The Different Interpretation Religions}{3}{0}{5}
+\beamer@sectionintoc {6}{Importance of Philosophy}{3}{0}{6}
+\beamer@sectionintoc {7}{Aha! Connection}{3}{0}{7}
