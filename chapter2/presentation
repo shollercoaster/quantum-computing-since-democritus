@@ -1,0 +1,341 @@
+\documentclass[
+    11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+    %
+    aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+\usepackage{hyperref}
+%\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+
+%\usepackage{appendixnumberbeamer} %If you want a separate slide counter for your appendix
+
+%%% To add citations
+
+%%% Customize Theme %%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Madrid} % You can use other themes too, but this changes many things. I've found Madrid to be the best for this color scheme
+
+%fg = font color
+%bg = background color
+
+% ! WARNING ! : Many colors are linked to multiple attributes, so changing one color can have unexpected changes!
+
+% If you want to tweak the shading of orange and red, tweak the below 2 lines:t
+\definecolor{myRed}{RGB}{120,4,4}
+\definecolor{myOrange}{RGB}{227, 125, 0}
+
+% Bottom right hand color
+\setbeamercolor*{structure}{bg=myRed!20,fg=myRed!90}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg} %?
+\setbeamercolor*{palette secondary}{use=structure,fg=myRed,bg=white}
+    %bottom left of footer & bar between title & top bubbles
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=myRed} 
+
+\setbeamercolor{frametitle}{bg=myRed!85,fg=white} %title of each slide
+
+\setbeamercolor*{titlelike}{parent=palette primary} %?
+%\setbeamercolor{titlelike}{parent=palette primary,fg=structure.fg!50!myRed}
+
+%for miniframe (very top) AND center footer
+\setbeamercolor{section in head/foot}{fg=myOrange, bg=white}
+
+%%% Specific Colors %%%
+\setbeamercolor{item projected}{bg=myOrange}
+\setbeamertemplate{enumerate items}{bg=myOrange}
+
+\setbeamercolor{itemize item}{fg=myOrange}
+\setbeamercolor{itemize subitem}{fg=myOrange}
+
+\setbeamercolor{button}{bg=myOrange}
+
+%%% Edits ONLY the TOC slide %%%
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
+%%% Block Colors %%%
+% Standard block %
+    \setbeamercolor{block title}{bg=myOrange, fg=white}
+    \setbeamercolor{block body}{bg=myOrange!20}
+
+% Alerted block % If you want to customize it's color
+    %\setbeamercolor{block title alerted}{bg=cyan, fg=white}
+    %\setbeamercolor{block body alerted}{bg=cyan!10}
+
+% Example block % If you want to customize it's color
+    %\setbeamercolor{block title example}{bg=cyan, fg=white}
+    %\setbeamercolor{block body example}{bg=cyan!10}
+
+%---------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%---------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+\useinnertheme{circles}
+
+%---------------------------------------------------------
+%	SELECT OUTER THEME
+%---------------------------------------------------------
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%
+\useoutertheme{miniframes}
+
+%\useoutertheme{infolines}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%---------------------------------------------------------
+%	PRESENTATION INFORMATION
+%---------------------------------------------------------
+
+\title[Sets]{Quantum Computing Since Democritus}
+\subtitle{Scott Aaronson}
+\author[Quantum Computing Since Democritus]{Chapter 2: Sets}
+
+\institute[]{Saumya Chaturvedi \\ \smallskip }
+\date[17 March 2023]
+%\date[\today]
+
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{document}
+
+%---------------------------------------------------------
+%	TITLE SLIDE
+%---------------------------------------------------------
+\section{}
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+ 
+\end{frame}
+
+%---------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%---------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Table of Contents} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%---------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%---------------------------------------------------------
+\section{Why Sets?} % Note all sections and subsections are automatically placed in your table of contents
+\begin{frame}
+\frametitle{Why Sets?}
+\begin{itemize}
+
+   \item<1-> Math = foundation of thought, set = foundation of math
+   \item<2-> Real reason will get clearer later
+   
+   \item Bumpy road ahead: learner discretion is advised
+   \item Warning No. 2: I could be very wrong
+
+\end{itemize}
+\centering
+    \includegraphics[angle=0, width=3cm, height=3cm]{warning.jpg}
+\end{frame}
+%------------------------------------------------
+\section{First Order Logic}
+\begin{frame}
+	\frametitle{First Order Logic}
+	
+	
+	Used to construct "valid" (tautologically true) sentences about sets.
+
+    \begin{figure}[h!] 
+        \centering
+        %\caption{Hawkins et al, 2015}
+        \includegraphics[angle=0, width=14cm, height=5cm]{firstorderlogic.png}
+        %\label{Figure 1}
+    \end{figure}
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Example: Peano Axioms and Models}
+\begin{itemize}
+    \item Here S(x) = x + 1 (Successor function)
+    \item “model” = any collection of objects whose functions satisfy axioms
+    \item more than one model satisfies a group of axioms
+\end{itemize}
+
+\centering
+    \includegraphics[angle=0, width=11cm, height=3cm]{peano.png}
+
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Why write axioms?}
+ \begin{itemize}
+    \item Chicken-egg problem: why write rules for integers when I know what integers are?
+    \item Doesn't provide a foundation to basic arithmetic
+    \item Still useful because:
+    \begin{itemize}
+        \item When we talk about infinities and not integers, only writing axioms helps!
+        \item Formalizing makes reasoning a syntactic procedure, even a computer can do it
+        \item Meta-mathematics!
+        \newline
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\section{Axioms of Set Theory}
+\begin{frame}{Zermelo–Fraenkel Axioms}
+\subtitle{Basically the foundation of all math}
+Universal objects = sets, relationship through containment denoted by \in .
+\newline
+\centering
+    \includegraphics[angle=0, width=7cm, height=5cm]{settheoryaxioms.png}
+
+\end{frame}
+%------------------------------------------------
+\section{Cardinalities and Countabilities}
+\begin{frame}{Aleph-Zero $\aleph_0$}
+\begin{itemize}
+    \item Cardinality = number of elements in set
+    \item Georg Cantor's method of finding it: 'One-to-one correspondence'
+    \item First infinite cardinality (Integers) = Aleph-Zero $\aleph_0$
+    \item Rational numbers countable because 1-to-1 correspondence with integers
+    \begin{itemize}
+        \item Proof? Whiteboard.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% \begin{frame}{Rational Numbers are Countable}
+%     [whiteboard]
+% \end{frame}
+    
+\begin{frame}{Infinitely Many Infinities}
+\begin{itemize}
+    \item Not every infinity is countable
+    \item infinity of real numbers is greater than the infinity of integers
+    \item Proof: 
+    \begin{itemize}
+        \item Let B be the powerset of A
+        \item Whiteboard
+    
+    \end{itemize}
+    \item Cantor's Diagonalization
+    
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cardinal and Ordinal Numbers}
+    \begin{itemize}
+        \item I'll make a number bigger than every natural number, w.
+        \item What comes after it? w + 1, w + 2, ...
+        2w, 3w, ...
+        and of course, $ω^{2}$, $ω^{3}$, ...
+        Okay we get the idea.
+        \item For any set of ordinal numbers (finite or infinite), there's a first ordinal successor number.
+        \item Well-ordered = each subset has a minimum element
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+\section{Aleph-One $\aleph_1$}
+
+\begin{frame}{Producing infinities larger than infinity}
+   Now, all of the ordinal numbers have at most countably many predecessors (i.e., at most $\aleph_0$ of them). \newline
+   \newline
+   What if we consider the set of all ordinals with at most countably many predecessors? \newline \newline
+   Successor of that set, alpha.
+    \newline
+   \begin{itemize}
+       \item<1-> Does alpha itself have $\aleph_0$ predecessors?
+       \item<2-> No! 
+       \item<3-> Set alpha has the next possible cardinality, called Aleph-One $\aleph_1$.
+   \end{itemize}
+   
+    
+\end{frame}
+
+%------------------------------------------------
+\section{Intermediate Infinities?}
+\begin{frame}{Intermediate Infinities?}
+\begin{itemize}
+    \item Cardinalities themselves are well-ordered.
+    \item You never see an infinite decreasing sequence of infinities, as you do with the real numbers.
+    \item 2 different ways of generating larger infinities:
+    \begin{itemize}
+        \item Real numbers: $2^{\aleph_0$}
+        \item $\aleph_1$
+    \end{itemize}
+    \item<1-> Is 2$^{\aleph_0}$ == $\aleph_1$?
+    \item<2-> Paraphrasing: is there any infinity of intermediate size between the infinity of the integers and the infinity of the reals?
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{The Continuum Hypothesis}
+\begin{itemize}
+    \item Cantor believed there were no intermediate infinities.
+    \item To find an infinite set of real numbers that couldn't be put into one-to-one correspondence with the natural numbers or the real numbers.
+    \item No proofs until Cohen and Godel.
+\end{itemize}
+    
+\end{frame}
+%------------------------------------------------
+\section{Axiom of Choice}
+\begin{frame}{Axiom of Choice}
+    \begin{itemize}
+        \item Couldn't be proved/disproved from the ZF Axioms.
+        \item If you have a (possibly infinite) set of sets, then it’s possible to form a new set by choosing one item from each set.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Analogies}
+\begin{itemize}
+    \item Banach-Tarski Paradox \href{https://natureintheory.artstation.com/projects/Le2dk0?album_id=1837739}{[animation]}
+    \begin{itemize}
+        \item Solid ball in 3D space
+        \item can be decomposed into pieces and rearranged into 2 identical copies of itself
+        \item The pieces are infinite scatterings of points, not solids themselves.
+    \end{itemize}
+    \item  As Bertrand Russell put it: “To choose one sock from each of infinitely many pairs of socks requires the Axiom of Choice, but for shoes the Axiom is not needed.”
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{But how?}
+\begin{itemize}
+    \item It asserts that certain sets exist, but without giving any rule for forming those sets.
+    \item "picking" = mathematically vague
+    \item Implies every set can be well ordered.
+    \item That is, pairing up with 0, 1, .. w, 2w, .. upto some ordinal.
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Implications: Well-Ordering}
+Demonstration on the whiteboard. \newline
+
+Blurry area: Transfinite induction and why I stopped well-ordering at A.
+    
+\end{frame}
+%------------------------------------------------
+\section{"Fun" Puzzles}
+\begin{frame}{Mathematical Puzzles}
+    This is where my understanding leaves me. Let's just read the book together.
+\end{frame}
+
+
+\end{document}
+
+
