@@ -1,0 +1,322 @@
+\documentclass[
+    11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+    %
+    aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+\usepackage{hyperref}
+%\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+
+%\usepackage{appendixnumberbeamer} %If you want a separate slide counter for your appendix
+
+%%% Customize Theme %%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Madrid} % You can use other themes too, but this changes many things. I've found Madrid to be the best for this color scheme
+
+%fg = font color
+%bg = background color
+
+% ! WARNING ! : Many colors are linked to multiple attributes, so changing one color can have unexpected changes!
+
+% If you want to tweak the shading of orange and red, tweak the below 2 lines:t
+\definecolor{myRed}{RGB}{120,4,4}
+\definecolor{myOrange}{RGB}{227, 125, 0}
+
+% Bottom right hand color
+\setbeamercolor*{structure}{bg=myRed!20,fg=myRed!90}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg} %?
+\setbeamercolor*{palette secondary}{use=structure,fg=myRed,bg=white}
+    %bottom left of footer & bar between title & top bubbles
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=myRed} 
+
+\setbeamercolor{frametitle}{bg=myRed!85,fg=white} %title of each slide
+
+\setbeamercolor*{titlelike}{parent=palette primary} %?
+%\setbeamercolor{titlelike}{parent=palette primary,fg=structure.fg!50!myRed}
+
+%for miniframe (very top) AND center footer
+\setbeamercolor{section in head/foot}{fg=myOrange, bg=white}
+
+%%% Specific Colors %%%
+\setbeamercolor{item projected}{bg=myOrange}
+\setbeamertemplate{enumerate items}{bg=myOrange}
+
+\setbeamercolor{itemize item}{fg=myOrange}
+\setbeamercolor{itemize subitem}{fg=myOrange}
+
+\setbeamercolor{button}{bg=myOrange}
+
+%%% Edits ONLY the TOC slide %%%
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
+%%% Block Colors %%%
+% Standard block %
+    \setbeamercolor{block title}{bg=myOrange, fg=white}
+    \setbeamercolor{block body}{bg=myOrange!20}
+
+% Alerted block % If you want to customize it's color
+    %\setbeamercolor{block title alerted}{bg=cyan, fg=white}
+    %\setbeamercolor{block body alerted}{bg=cyan!10}
+
+% Example block % If you want to customize it's color
+    %\setbeamercolor{block title example}{bg=cyan, fg=white}
+    %\setbeamercolor{block body example}{bg=cyan!10}
+
+%---------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%---------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+\useinnertheme{circles}
+
+%---------------------------------------------------------
+%	SELECT OUTER THEME
+%---------------------------------------------------------
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%
+\useoutertheme{miniframes}
+
+%\useoutertheme{infolines}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%---------------------------------------------------------
+%	PRESENTATION INFORMATION
+%---------------------------------------------------------
+
+\title[Gödel, Turing and Friends]{Quantum Computing Since Democritus}
+\subtitle{Scott Aaronson}
+\author[Quantum Computing Since Democritus]{Chapter 3: Gödel, Turing and Friends}
+
+\institute[]{Saumya Chaturvedi \\ \smallskip }
+\date[24 March 2023]
+%\date[\today]
+
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{document}
+
+%---------------------------------------------------------
+%	TITLE SLIDE
+%---------------------------------------------------------
+\section{}
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+ 
+\end{frame}
+
+%---------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%---------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Table of Contents} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%---------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+\section{Gödel's Completeness Theorem}
+
+\begin{frame}{Gödel's Completeness Theorem}
+\begin{itemize}
+    \item First Order Logic is all you need.
+    \item If, starting from some set of axioms, you can’t derive a contradiction using these rules, then the axioms must have a model.
+    \item Everything from Fermat's Last Theorem can be proved by applying these rules over and over again.
+    
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Proof}
+    \begin{itemize}
+        \item “extracting semantics from syntax.”
+        \item We cook up objects to order as the axioms request them!
+        \item If inconsistency found, it suggests inconsistency in the original axioms.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Application}
+    \begin{itemize}
+        \item Löwenheim-Skolem Theorem: If a countable theory has a model, it has a countable model.
+        \item Every consistent set of axioms has a model of at most countable cardinality.
+        \item Because you can only cook up objects to order a countably infinite number of times!
+    \end{itemize}
+\end{frame}
+
+
+\section{Gödel's Incompleteness Theorem}
+\begin{frame}{Gödel's (In)completeness Theorem}
+\begin{itemize}
+    \item For a computable (finite axioms), consistent (no contradictions) set of axioms, there's a true statement within those axioms which cannot be proven from those axioms.
+    \item Proof: 30 pages vs 2 lines.
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Proof Method 1: Encoding}
+\begin{itemize}
+    \item Similar to Scott's friend's method of realizing arrays.
+    \item Very cool demonstration on whiteboard.
+\end{itemize}
+    
+\end{frame}
+
+
+\section{Turing and the Halting Problem}
+
+\begin{frame}{Turing Machine and Assumptions}
+ \begin{itemize}
+    \item In 1936, "computer" meant a woman.
+    \item Realising a computer machine which does the following:
+    \begin{itemize}
+        \item Writes calculations on a square paper, each symbol per square.
+        \item Reads 1 symbol at a time, and is able to go back and forth on the tape.
+        
+        \newline
+    \end{itemize}
+    
+    \item How does it make instantaneous decisions?
+    \begin{itemize}
+        \item Depends on the symbol currently being read,
+        \item and the machine’s current “internal configuration”
+or “state.” 
+        \newline
+    
+    \end{itemize}
+    \item What should the machine do?
+    \begin{enumerate}
+        \item  Write a new symbol in the current square,
+overwriting whatever symbol is there,  
+        \item  Move backward or forward one square, and
+        \item  Switch to a new state or halt.
+        \newline
+    
+    \end{enumerate}
+    \item The number of possible internal states should be finite.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Implications}
+    \begin{itemize}
+        \item Universal programmable computers can exist.
+        \item Inventing the Halting Problem
+        \item Hard problem, solving this solves other problems like Goldbach's Conjecture
+    \end{itemize}
+\end{frame}
+\begin{frame}{Halting Problem and Proof}
+ \begin{itemize}
+        \item Given a program, can we determine if it halts ever?
+        \item Proof by contradiction that a program P to solve Turing problem exists.
+        \item Modify P to produce a new program P’ that:
+        \begin{itemize}
+            \item  runs forever if Q halts given its own code as input, or
+            \item halts if Q runs forever given its own code as input. 
+        \end{itemize}
+        \item Feed P' its own code as input.
+        \item P' will run forever if it halts, and halt if it runs forever. So it doesn't exist.
+    \end{itemize}
+    
+\end{frame}
+\begin{frame}{Halting Proving Incompleteness}
+    \begin{itemize}
+        \item Suppose: A consistent, computable proof system F proving/disproving any statement about the integers.
+        \item<1-> Halting Problem: about integers, find proof within F.
+        \item<2-> But program to solve Halting Problem can't exist.
+        \item<3-> F can't exist.
+    \end{itemize}
+\end{frame}
+
+
+\section{Second Incompleteness Theorem}
+\begin{frame}{Second Incompleteness Theorem}
+   \begin{itemize}
+    \item Back to program P' fed to itself, why not use this program as proof?
+    \item Hidden assumption behind it: F is consistent.
+    \item If F was inconsistent, it could prove P halting even if it ran forever.
+    \item But if F could prove its consistency, it could also prove P halting or running forever.
+    \item Only possible conclusion: F is consistent but can't prove its own consistency.
+    \item To prove consistency of powerful theories, we need even more powerful theories. (Illustration on whiteboard)
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}{Implications }
+\begin{itemize}
+    \item Finding bigger infinities (large Cardinals) to prove consistencies. Example: PA and ZF.
+    \item<1-> A quick question to test your understanding: while we can’t prove in PA that Con(PA), can we least prove in PA that Con(PA) implies Con(ZF)?
+    \item<2-> No! Because then we could prove in ZF that Con(PA) implies Con(ZF).
+\end{itemize}
+\end{frame}
+
+\section{Completeness vs Incompleteness}
+                      
+\begin{frame}{Peano Arithmetic's example}
+\subtitle{How do these 2 not cancel each other out?}
+\begin{itemize}
+    \item “self-hating theory”: PA + the assertion of its own inconsistency. (whiteboard)
+    \item Axioms keep cooking up large fictitious numbers to create a model for theories.
+    \item The point of the Completeness Theorem is that the whole infinite set of fictitious numbers the axioms cook up will constitute a model for PA – just not from ordinary positive integers!
+    \item For the latter, we move to Incompleteness theorem.
+\end{itemize}
+\end{frame}
+
+\section{Just Believe in Yourself!}
+
+\begin{frame}{Just Believe in Yourself!}
+\begin{itemize}
+    \item Puzzle from last chapter
+    \item Let's assume we can prove the Riemann Hypothesis!
+    \item $\zeta$(s) = 1 + $\frac{1}{2^s}$ + 1/3s + 1/4s + ...
+    \item Löb's Theorem: a mathematical system cannot assert its own soundness without becoming inconsistent. 
+\end{itemize}   
+\end{frame}
+
+
+\section{Independence}
+
+\begin{frame}{How does AC and CH fit into this?}
+\begin{itemize}
+    \item Is continuum (cardinality of the real numbers) true or false?
+    \item Godel 1939: assuming the Axiom of Choice (AC) or the Continuum Hypothesis (CH) can never lead to an inconsistency.
+    \item Can we also assume AC and CH are false?
+    \item Paul Cohen 1963: CH is not provable from the axioms of set theory. ("forcing")
+    \item The independence of AC and CH from ZF set theory is itself a theorem of Peano Arithmetic.
+    \item Do we ever really talk about the continuum, or do we only ever talk about finite sequences of symbols that talk about the continuum?
+\end{itemize}
+    
+\end{frame}
+
+\section{Aha! Connection}
+\begin{frame}{Physically Meaningless}
+\begin{itemize}
+    \item How many different positions of a pen on paper? $\aleph_1$?  $2^{\aleph_0}$?
+    \item A physically meaningless question, but requires a physical theory!
+    \item Quantum mechnanics is somehow "quantized" yet continuous.
+    \item Scott's assumption: \href{https://www.google.com/search?q=hilbert+space&rlz=1C1CHBD_enIN1013IN1013&sxsrf=AJOqlzWw92tsrRiWqy1BJLIvsWLRpFqF-Q:1679559886629&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjfpK-T0PH9AhUpzzgGHZL6DwUQ_AUoAXoECAEQAw&biw=1280&bih=577&dpr=1.5#imgrc=b_3ncQ7CReTCqM}{Hilbert space}(the space of all possible quantum states of some system) is finite-dimensional.
+    \item There are continuous parameters (probabilities or amplitudes) but not directly observable, we're "shielded" from them. (waveforms collapsing on measurement.)
+\end{itemize}
+\end{frame}
+
+\section{Exercises and Further Reading}
+\begin{frame}{Exercises and Further Reading}
+    \centering
+    %\caption{Hawkins et al, 2015}
+    \includegraphics[angle=0, width=12cm, height=6.65cm]{exerciseAndReadings.png}
+\end{frame}
+
+
+\end{document}
+
+%---------------------------------------------------------
+
+

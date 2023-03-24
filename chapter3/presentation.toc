@@ -1,0 +1,9 @@
+\beamer@sectionintoc {2}{Gödel's Completeness Theorem}{3}{0}{1}
+\beamer@sectionintoc {3}{Gödel's Incompleteness Theorem}{6}{0}{2}
+\beamer@sectionintoc {4}{Turing and the Halting Problem}{8}{0}{3}
+\beamer@sectionintoc {5}{Second Incompleteness Theorem}{14}{0}{4}
+\beamer@sectionintoc {6}{Completeness vs Incompleteness}{17}{0}{5}
+\beamer@sectionintoc {7}{Just Believe in Yourself!}{18}{0}{6}
+\beamer@sectionintoc {8}{Independence}{19}{0}{7}
+\beamer@sectionintoc {9}{Aha! Connection}{20}{0}{8}
+\beamer@sectionintoc {10}{Exercises and Further Reading}{21}{0}{9}
