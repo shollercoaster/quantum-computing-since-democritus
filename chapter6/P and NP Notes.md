@@ -1,0 +1,26 @@
+# P and NP
+
+- polynomial bound = fast, exponential = slow
+- exceptions don't drive the main abstraction
+- PSPACE contained in EXP, because machine with n^k memory can only go thru 2^n^k steps before halting/infinite loop
+- NP = if answer yes then we have polynomial size proof ki answer exists in polynomial time
+- NP contained in PSPACE
+- P contained in NP
+- P = NP? (is finding a proof efficiently just as easy as efficienty recognising it?)
+- most important qstn, if solvable, mathematical creativity could be automated
+- a computer could solve every important math problem
+- we believe P != NP
+- but proof needs to separate those that are rllllyy hard with those that just seem hard (polynomial time algorithms)
+- so we have ptime algos for some hard problems, but not for others?
+- NP completeness: almost all hard problems are the same hard problems in different guises, if we have ptime algo for one we have it for the rest
+- B is "NP hard" if we can reduce any NP problem to B (if we had an oracle to solve B, we could solve any NP problem)
+- cook reduction: call oracle any number of times, and adaptively (dependent on last time calls), rarely needed
+- karp reduction: weaker, A to B so there should a ptime algo converting any instance of A to any instance of B, more widely used
+- NP complete = both NP hard and in NP
+- its obvious that there are many NP complete problems, but that there are many natural NP complete
+- proof: 3SAT is NP complete
+- examples and why proving NP completeness became easy 
+- intermediate problems which are in NP but not polynomial time, when p != NP, and how to make them (alternate stretches of nothing with ptime algos, growing exponentially) (Ladner's Theorem)
+- coNP = checking a "no" proof is efficient
+	- if P = NP, then NP = coNP, but the negation isnt true
+- the married people ptime algo
